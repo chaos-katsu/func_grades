@@ -1,3 +1,134 @@
-bob = 89
-math = bob + 3
-print(math)
+grade_book= {}
+def insert_grade(grade_book):
+  add_student = list(input().split( )) #splits input into a list
+  student_name = add_student[0] #makes variable for student name from add_studdent
+  student_grade = add_student[1] #makes variable for student grade
+  grade_book = {student_name : student_grade} #adds into gradebook
+  print(grade_book)
+  pass
+"""
+  Requests that the use enter name of grade of a student.
+  If the student is not in the grade_book it adds the student
+  to the grade_book and sets their grade to the grade given.
+  If the student is in the grade_book it sets their grade
+  to the grade given.
+  @grade_book: a dictionary mapping student names to their grades.
+    This dictionary is modified based on the student name and grade
+    entered.
+  @returns:None
+  """
+
+#end insert_grade
+  
+def delete_student(grade_book):
+  delete_student = list(input().split())
+  del grade_book[delete_student]
+  return None
+  
+  """
+  Requests that the user enters a student's name and then removes them
+  from the grade_book if they are present. If the student is not present
+  then then the grade_book is not modified.
+  @grade_book: a dictionary mapping student names to their grades.
+    This dictionary is modified based on the name of the student entered.
+  @returns: None
+  """
+#end delete_student
+
+
+def display_grades(grade_book):
+  print('-----Displaying Grades-----')
+  for student, grade in list_grades:
+    list_grades.append((student,grade))
+    list_grades = grade_book
+    
+  pass
+'''  list_grades = []
+  for student, grade in grade_book.items():
+    list_grades.append((student, grade))
+    continue
+  list_grades.sort()
+  """
+  Display the students' names along with their grades in alphabetical order
+  @grade_book: a dictionary mapping student names to their grades.
+  @returns: None
+  """
+  print('\n-----Displaying Grades-----')
+  for student, grade in list_grades:
+    print('{:<10s} : {:>3d}'.format(student,grade))
+    continue
+  print('-----Done Displaying Grades-----\n')
+  #end display_grades
+  
+def mean(numbers):
+  """
+  Calculates the median of a set of numbers.
+  @numbers: an interable of numbers
+  @returns: the mean of numbers
+  """
+  pass
+
+#end mean
+
+def median(numbers):
+  """
+  Caculates the median of a set of numbers
+  @numbers: an iterable of numbers
+  @returns: the median of numbers
+  """
+  pass
+#end median
+
+def mode(numbers):
+  """
+  Calculates the mode of a set of numbers.
+  @numbers: an iterable of numbers
+  @returns: the mode of those numbers
+  """
+  pass
+
+#end_mode
+
+def display_statistics(grade_book):
+  """
+  Display the mean, median, and mode of the grades
+  contained in the grade_book.
+  @grade_book: a dictionary mapping student names to their grades.
+  @returns: None
+  """
+  grades = grade_book.values()
+  print('\n-----Displaying Statistics-----')
+  print('Mean   : {:>6.2f}'.format(mean(grades)))
+  print('Median : {:>3d}'.format(median(grades)))
+  print('Mode   : {:>3d}'.format(mode(grades)))
+  print('-----Done Displaying Statistics-----\n')
+#end_display_statistics'''
+  
+def main():
+  grade_book = {} # the grade_book
+  menu_prompt = ("1. Add/modify student grade\n"
+                "2. Delete student grade\n"
+                "3. Print student grades\n"
+                "4. Display the course statistics\n"
+                "5. Quit\n"
+                "Your choice: ")
+  
+  while True:  # Exit when user enters choice 5
+      command = input(menu_prompt).lower().strip() #read command
+      if command == '1': #adding a student
+        insert_grade(grade_book)             
+      elif command == '2': #remove student from grade book
+          delete_student(grade_book)
+      elif command == '3':#display grades
+        display_grades(grade_book)
+      elif command == '4': #display statistics
+        display_statistics(grade_book)
+      elif command == '5': #done
+          break
+      else: #erroneous command
+          print('Unrecognized command.')
+#end main
+
+if __name__ == '__main__': #if this is the main program run
+  main() #run the main function
+ 
