@@ -1,0 +1,3 @@
+bob = 89
+math = bob + 3
+print(math)
